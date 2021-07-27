@@ -11,8 +11,7 @@ This is the setup repository for the [ExpressionDetection](https://gitlab.com/Ex
 
 ## Post-setup links
 
-* Download and install [Kreya](https://kreya.app/downloads/) to make test calls to the following services
-
+* `http` -> `localhost:6969`: [grpcox](https://github.com/gusaul/grpcox)
 * `gRPC` -> `localhost:50051`: [Model 1](https://gitlab.com/ExpressionDetection/model1)
 
 ## Useful commands

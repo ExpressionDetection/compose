@@ -1,6 +1,14 @@
 version: '3.7'
 services:
 
+  grpcox:
+    container_name: grpcox
+    image: gusaul/grpcox:latest
+    ports:
+      - "6969:6969"
+    networks:
+      - webnet
+
   model1:
     container_name: model1
     build:
