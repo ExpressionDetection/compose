@@ -2,7 +2,7 @@
 
 project="ExpressionDetection"
 gitProvider="github.com"
-repositories="api model1"
+repositories="api grcpPkg model1"
 apps="api"
 
 echo ">>> Setup started!"

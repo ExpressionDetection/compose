@@ -1,18 +1,33 @@
 version: '3.7'
 services:
-  
-  api:
-    container_name: api
+
+  model1:
+    container_name: model1
     build:
-      context: ../api/.
+      context: ../model1/.
       dockerfile: Dockerfile
     ports:
-      - "3001:20002"
+      - "50051:50051"
+    environment: 
+      - RPC_PORT=50051
     volumes:
-      - ../api:/app
+      - ../model1:/app
       - ../grcpPkg:/grcpPkg
     networks:
       - webnet
+
+  # api:
+  #   container_name: api
+  #   build:
+  #     context: ../api/.
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "3001:20002"
+  #   volumes:
+  #     - ../api:/app
+  #     - ../grcpPkg:/grcpPkg
+  #   networks:
+  #     - webnet
 
 networks:
   webnet:

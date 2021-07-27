@@ -11,7 +11,9 @@ This is the setup repository for the [ExpressionDetection](https://gitlab.com/Ex
 
 ## Post-setup links
 
-* `ws://localhost:3001`: Websockets API - [API](https://gitlab.com/ExpressionDetection/api)
+* Download and install [Kreya](https://kreya.app/downloads/) to make test calls to the following services
+
+* `gRPC` -> `localhost:50051`: [Model 1](https://gitlab.com/ExpressionDetection/model1)
 
 ## Useful commands
 
