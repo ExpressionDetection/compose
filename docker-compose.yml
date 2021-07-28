@@ -8,6 +8,16 @@ services:
       - "6969:6969"
     networks:
       - webnet
+  
+  grcppkg:
+    container_name: grcpPkg
+    build:
+      context: ../grcpPkg/.
+      dockerfile: Dockerfile
+    volumes:
+      - ../grcpPkg:/grcpPkg
+    networks:
+      - webnet
 
   model1:
     container_name: model1
@@ -18,6 +28,7 @@ services:
       - "50051:50051"
     environment: 
       - RPC_PORT=50051
+      - RELOAD_APP_ON_FILE_CHANGE=true
     volumes:
       - ../model1:/app
       - ../grcpPkg:/grcpPkg
