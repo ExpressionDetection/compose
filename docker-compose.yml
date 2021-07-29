@@ -1,6 +1,39 @@
 version: '3.7'
 services:
 
+  inference-api:
+    container_name: inference-api
+    build:
+      context: ../inference-api/.
+      dockerfile: Dockerfile
+    environment: 
+      - RELOAD_APP_ON_FILE_CHANGE=true
+      - PUSHER_APP_ID="1238509"
+      - PUSHER_KEY="adbeaa1d731202934e15"
+      - PUSHER_SECRET="6d5ed969964e6650f3f0"
+      - PUSHER_CLUSTER="us3"
+      - PUSHER_SECURE="true"
+    volumes:
+      - ../inference-api:/app
+      - ../grcp-pkg:/grcp-pkg
+    networks:
+      - webnet
+  
+  chrome-extension:
+    container_name: chrome-extension
+    build:
+      context: ../chrome-extension/.
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment: 
+      - RELOAD_APP_ON_FILE_CHANGE=true
+      - APP_PORT="3000"
+    volumes:
+      - ../chrome-extension:/app
+    networks:
+      - webnet
+
   grpcox:
     container_name: grpcox
     image: gusaul/grpcox:latest
@@ -9,13 +42,13 @@ services:
     networks:
       - webnet
   
-  grcppkg:
-    container_name: grcpPkg
+  grcp-pkg:
+    container_name: grcp-pkg
     build:
-      context: ../grcpPkg/.
+      context: ../grcp-pkg/.
       dockerfile: Dockerfile
     volumes:
-      - ../grcpPkg:/grcpPkg
+      - ../grcp-pkg:/grcp-pkg
     networks:
       - webnet
 
@@ -31,22 +64,9 @@ services:
       - RELOAD_APP_ON_FILE_CHANGE=true
     volumes:
       - ../model1:/app
-      - ../grcpPkg:/grcpPkg
+      - ../grcp-pkg:/grcp-pkg
     networks:
       - webnet
-
-  # api:
-  #   container_name: api
-  #   build:
-  #     context: ../api/.
-  #     dockerfile: Dockerfile
-  #   ports:
-  #     - "3001:20002"
-  #   volumes:
-  #     - ../api:/app
-  #     - ../grcpPkg:/grcpPkg
-  #   networks:
-  #     - webnet
 
 networks:
   webnet:

@@ -6,14 +6,15 @@ This is the setup repository for the [ExpressionDetection](https://gitlab.com/Ex
 
 * Install [Docker](https://docs.docker.com/install/)
 
-* Run `./setup.sh`
-    * This will setup [API](https://gitlab.com/ExpressionDetection/api)
+* Run `./setup.sh` and enjoy!
 
 ## Post-setup services
 
-* `http` -> `localhost:6969`: [grpcox](https://github.com/gusaul/grpcox)
-* `gRPC` -> `localhost:50051`: [Model 1](https://gitlab.com/ExpressionDetection/model1)
-* `no url` -> [grpcPkg](https://gitlab.com/ExpressionDetection/grpcPkg)
+| Service Name                                               | Description           | Protocol           | URL                      |
+| -----------                                                | -----------           | -----------        | -----------              |
+| [grpcox](https://github.com/gusaul/grpcox)                 | RPC explorer GUI      | `http`             | `localhost:6969`         |
+| [Model 1](https://gitlab.com/ExpressionDetection/model1)   | Model 1 RPC service   | `gRPC / http2`     | `localhost:50051`        |
+| [grpcPkg](https://gitlab.com/ExpressionDetection/grpcPkg)  | RPC `protobufs` store | N/A                | N/A                      |
 
 ## Useful commands
 
