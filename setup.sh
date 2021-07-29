@@ -2,7 +2,7 @@
 
 project="ExpressionDetection"
 gitProvider="github.com"
-repositories="chrome-extension" #inference-api grcp-pkg model1 
+repositories="inference-api grcp-pkg model1 chrome-extension"
 
 SETUP_TYPE=$1
 
