@@ -6,7 +6,7 @@ This is the setup repository for the [ExpressionDetection](https://github.com/Ex
 
 * Install [Docker](https://docs.docker.com/install/)
 
-* Run `./setup.sh` and enjoy!
+* Run `./setup.sh new` and enjoy!
   * After the setup is complete check services logs by doing `./log-apps.sh`
 
 ## Post-setup services
