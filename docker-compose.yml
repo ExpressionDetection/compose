@@ -8,6 +8,7 @@ services:
       dockerfile: Dockerfile
     environment: 
       - RELOAD_APP_ON_FILE_CHANGE=true
+      - API_PORT=3001
       - PUSHER_APP_ID=1238509
       - PUSHER_APP_KEY=adbeaa1d731202934e15
       - PUSHER_APP_SECRET=6d5ed969964e6650f3f0
