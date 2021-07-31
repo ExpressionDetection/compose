@@ -1,19 +1,28 @@
 version: '3.7'
 services:
+  inference-redis:
+    container_name: inference-redis
+    image: redis:5
+    ports:
+      - "6379:6379"
+    networks:
+      - webnet
 
   inference-api:
     container_name: inference-api
     build:
       context: ../inference-api/.
       dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
     environment: 
       - RELOAD_APP_ON_FILE_CHANGE=true
+      - REDIS_PORT=6379
+      - REDIS_HOST=inference-redis
+      - FRONT_END_PROTOCOL=http
+      - FRONT_END_HOST=localhost
+      - FRONT_END_PORT=3000
       - API_PORT=3001
-      - PUSHER_APP_ID=1238509
-      - PUSHER_APP_KEY=adbeaa1d731202934e15
-      - PUSHER_APP_SECRET=6d5ed969964e6650f3f0
-      - PUSHER_APP_CLUSTER=us3
-      - PUSHER_APP_SECURE="1"
     volumes:
       - ../inference-api:/app
       - ../grcp-pkg:/grcp-pkg
@@ -29,8 +38,9 @@ services:
       - "3000:3000"
     environment: 
       - RELOAD_APP_ON_FILE_CHANGE=true
-      - NEXT_PUBLIC_PUSHER_APP_KEY=adbeaa1d731202934e15
-      - NEXT_PUBLIC_PUSHER_APP_CLUSTER=us3
+      - NEXT_PUBLIC_SOCKER_IO_PROTOCOL=http
+      - NEXT_PUBLIC_SOCKER_IO_HOST=localhost
+      - NEXT_PUBLIC_SOCKER_IO_PORT=3001
       - APP_PORT="3000"
     volumes:
       - ../chrome-extension:/app
