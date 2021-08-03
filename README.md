@@ -15,6 +15,7 @@ This is the setup repository for the [ExpressionDetection](https://github.com/Ex
 | -----------                                                                  | -----------                | -----------        | -----------              |
 | [grpcox](https://github.com/gusaul/grpcox)                                   | RPC explorer GUI           | `http`             | `localhost:6969`         |
 | [model1](https://github.com/ExpressionDetection/model1)                      | Model 1 RPC service        | `gRPC / http2`     | `localhost:50051`        |
+| [model2](https://github.com/ExpressionDetection/model2)                      | Model 2 RPC service        | `gRPC / http2`     | `localhost:50052`        |
 | [grpc-pkg](https://github.com/ExpressionDetection/grpcPkg)                   | RPC `protobufs` store      | N/A                | N/A                      |
 | [chrome-extension](https://github.com/ExpressionDetection/chrome-extension)  | Video call chrome extesion | `http`             | `localhost:3000`         |
 
