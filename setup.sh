@@ -16,7 +16,8 @@ for repository in $repositories; do
     if [ ! -d "../${repository}" ]; then
         git clone "git@$gitProvider:$project/$repository.git" "../$repository"
     else
-        echo ">>> ../${repository} already cloned"
+        echo ">>> ../${repository} already cloned, pulling latest updates from master branch"
+        cd ../${repository} && git pull origin master && cd ../compose
         # This is necessary because Vagrant creates a directory inside the VM during `vagrant up --provision`
         if [ "$SETUP_TYPE" == "new" ] &&  [ "${repository}" == "chrome-extension" ]; then
             cd ../${repository} && git init && git remote add origin "git@$gitProvider:$project/$repository.git" && git pull origin master && cd ../compose
