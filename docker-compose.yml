@@ -22,6 +22,9 @@ services:
       - FRONT_END_PROTOCOL=http
       - FRONT_END_HOST=localhost
       - FRONT_END_PORT=3000
+      - GRPC_PROTO_PATH=/grcp-pkg/grcppkg/protos/server.proto
+      - MODEL_1_HOST=model1
+      - MODEL_1_PORT=50051
       - API_PORT=3001
     volumes:
       - ../inference-api:/app
