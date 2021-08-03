@@ -8,6 +8,9 @@ SETUP_TYPE=$1
 
 echo ">>> Setup started!"
 
+echo ">>> Destroying existent containers"
+./down.sh remove
+
 echo ">>> Cloning repositories"
 for repository in $repositories; do
     if [ "$SETUP_TYPE" == "new" ]; then
@@ -25,9 +28,6 @@ for repository in $repositories; do
 
     fi
 done
-
-echo ">>> Destroying existent containers"
-./down.sh remove
 
 echo ">>> Creating application containers"
 ./build.sh
