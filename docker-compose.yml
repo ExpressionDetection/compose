@@ -31,6 +31,10 @@ services:
     volumes:
       - ../inference-api:/app
       - ../grcp-pkg:/grcp-pkg
+    depends_on:
+      - "inference-redis"
+      - "model1"
+      - "model2"
     networks:
       - webnet
   
