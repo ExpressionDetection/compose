@@ -55,13 +55,13 @@ services:
     networks:
       - webnet
 
-  grpcox:
-    container_name: grpcox
-    image: gusaul/grpcox:latest
-    ports:
-      - "6969:6969"
-    networks:
-      - webnet
+  #grpcox:
+  #  container_name: grpcox
+  #  image: gusaul/grpcox:latest
+  #  ports:
+  #    - "6969:6969"
+  #  networks:
+  #    - webnet
   
   grcp-pkg:
     container_name: grcp-pkg
