@@ -30,7 +30,6 @@ services:
       - API_PORT=3001
     volumes:
       - ../inference-api:/app
-      - ../grcp-pkg:/grcp-pkg
     depends_on:
       - "inference-redis"
       - "model1"
@@ -87,7 +86,6 @@ services:
       - RELOAD_APP_ON_FILE_CHANGE=true
     volumes:
       - ../model1:/app
-      - ../grcp-pkg:/grcp-pkg
     networks:
       - webnet
   
@@ -102,9 +100,8 @@ services:
       - RPC_PORT=50052
       - MODEL_ARTIFACT_DIR=/app/model1/models/CK
       - RELOAD_APP_ON_FILE_CHANGE=true
-    volumes:
-      - ../model1:/app
-      - ../grcp-pkg:/grcp-pkg
+    #volumes:
+      # - ../model1:/app
     networks:
       - webnet
 

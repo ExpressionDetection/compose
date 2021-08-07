@@ -25,8 +25,8 @@ for repository in $repositories; do
         if [ "$SETUP_TYPE" == "new" ] &&  [ "${repository}" == "chrome-extension" ]; then
             cd ../${repository} && git init && git remote add origin "git@$gitProvider:$project/$repository.git" && git pull origin master && cd ../compose
         fi
-
     fi
+    cp -R /root/.ssh /projects/${repository}/.ssh
 done
 
 echo ">>> Creating application containers"
